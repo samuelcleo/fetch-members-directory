@@ -18,11 +18,22 @@ body {
     width: 375px;
     margin: 15% auto auto;
 
-    position: relative;
     text-align: center;
     background: #fff;
     border: solid 1px #778;
     border-radius: 5px;
+    position: relative;
+}
+.modal-close {
+    position: absolute;
+    border-style: none;
+    border-radius: 25%;
+    padding: 6px;
+    top: 5px;
+    right: 15px;
+    cursor: pointer;
+} .modal-close:hover {
+    background-color: lightcoral;
 }
 
 /* ===================================== 
