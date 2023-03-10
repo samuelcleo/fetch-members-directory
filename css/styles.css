@@ -3,14 +3,26 @@
     margin: 0;
     padding:0;
 }
-
+h1, h2, h3, h4, h5, h6{
+    font-size:16px;
+    font-weight:400
+}
 li {
     list-style: none;
     display: block;
 }
+
 /* ----- Base Styles ----- */
+h1 {
+    margin: 1.75rem 0;
+    font-size: 1.75rem;
+}
+p {
+    margin-bottom: 4px;
+}
+
 body {
-    width: 90%;
+    width: 95%;
     margin: 0 auto;
     background-color: #FCFCFC;
     position: relative
@@ -55,7 +67,7 @@ body {
 ======================================== */
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, auto));
+    grid-template-columns: repeat(auto-fit, minmax(400px, auto));
     grid-auto-rows: minmax(180px, auto);
     grid-gap: 40px;
 }
@@ -70,9 +82,15 @@ body {
     border: solid 1px #DCDCDC;
     background-color: #FFF;
 }
+.text-container {
+    align-self: center;
+}
 .avatar {
     margin-right: 20px;
     height: 128px;
     width: 128px;
     border-radius: 50%;
+}
+.card h2 {
+    font-size: 1.5rem;
 }
