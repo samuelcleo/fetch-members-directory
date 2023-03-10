@@ -1,4 +1,18 @@
+/* ----- Normalise ----- */
+*{
+    margin: 0;
+    padding:0;
+}
+
+li {
+    list-style: none;
+    display: block;
+}
+/* ----- Base Styles ----- */
 body {
+    width: 90%;
+    margin: 0 auto;
+    background-color: #FCFCFC;
     position: relative
 } .overlay {
     position: absolute;
@@ -39,9 +53,26 @@ body {
 /* ===================================== 
    Grid Layout
 ======================================== */
-main {
+.grid-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    grid-auto-rows: minmax(200px, auto);
-    
+    grid-template-columns: repeat(auto-fit, minmax(300px, auto));
+    grid-auto-rows: minmax(180px, auto);
+    grid-gap: 40px;
+}
+
+/* ===================================== 
+   Card Styles
+======================================== */
+.card {
+    display: flex;
+    padding: 30px;
+    border-radius: 10px;
+    border: solid 1px #DCDCDC;
+    background-color: #FFF;
+}
+.avatar {
+    margin-right: 20px;
+    height: 128px;
+    width: 128px;
+    border-radius: 50%;
 }
