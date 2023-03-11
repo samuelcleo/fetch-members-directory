@@ -81,6 +81,8 @@ body {
     border-radius: 10px;
     border: solid 1px #DCDCDC;
     background-color: #FFF;
+} .card:hover {
+    cursor: pointer;
 }
 .text-container {
     align-self: center;
