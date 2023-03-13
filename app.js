@@ -32,12 +32,11 @@ function displayModal(index) {
             dob, 
             phone, 
             email, 
-            location: { city, street, state, postcode }, 
+            location: { city, street: street, state, postcode }, 
             picture
         } = members[index]; // desctructures and declares properties of [ ...members ] as variables for all properties supplied at the object members[index]
     let date = new Date(dob.date);
     const modalHTML = `
-    <div class="modal-content">
         <img class="avatar" src="${picture.large}" />
         <div class="text-container">
             <h2 class="name">${name.first} ${name.last}</h2>
@@ -45,10 +44,9 @@ function displayModal(index) {
             <p class="address">${city}</p>
             <hr />
             <p>${phone}</p>
-            <p class="address">${street}, ${state} ${postcode}</p>
+            <p class="address">${street.name}, ${state} ${postcode}</p>
             <p>Birthday: ${date.getMonth()}/${date.getDate()}/${date.getFullYear()}</p>
         </div>
-    </div>
     `;
     overlay.classList.remove("hidden");
     modalContent.innerHTML = modalHTML;
@@ -62,8 +60,8 @@ const modalContent = document.querySelector('.modal-content');
 // supply the matching index in members array from the cards' data-index using the click event
 // run displayModal() using the matched index
 gridContainer.addEventListener('click', (e) => {
-    if (e.target.className === "card") {
-        const index = e.target.getAttribute("data-index");
+    if (e.target.className !== "grid-container") {
+        const index = e.target.closest(".card").getAttribute("data-index");
         displayModal(index);
     }
 })
