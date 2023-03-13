@@ -5,7 +5,7 @@
 }
 h1, h2, h3, h4, h5, h6{
     font-size:14px;
-    font-weight:400;
+    font-weight:500;
 }
 li {
     list-style: none;
@@ -22,7 +22,7 @@ p {
     margin-bottom: 4px;
 }
 body {
-    font-family: "Roboto", "Lucida Console", Helvetica, sans-serif;
+    font-family: "Noto Sans", "Lucida Console", Helvetica, sans-serif;
     background-color: #FCFCFC;
     position: relative
 } .overlay {
