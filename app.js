@@ -6,7 +6,6 @@ email, location, phone, dob &noinfo &nat=US`;
 let members = [];
 function displayMembers(membersData) {
     members = membersData;
-    console.log(members);
     let memberHTML = "";
     members.forEach((member, index) => {
         const name = member.name;
@@ -36,6 +35,17 @@ function displayModal(index) {
             picture
         } = members[index]; // desctructures and declares properties of [ ...members ] as variables for all properties supplied at the object members[index]
     let date = new Date(dob.date);
+    function pad(number) {
+        if (number < 10) {
+          return "0" + number;
+        } else {
+          return number;
+        }
+    }
+    console.log(date);
+    console.log(date.getMonth());
+    console.log(date.getDate());
+    console.log(date.getFullYear());
     const modalHTML = `
         <img class="avatar" src="${picture.large}" />
         <div class="text-container">
@@ -45,7 +55,7 @@ function displayModal(index) {
             <hr />
             <p>${phone}</p>
             <p class="address">${street.name}, ${state} ${postcode}</p>
-            <p>Birthday: ${date.getMonth()}/${date.getDate()}/${date.getFullYear()}</p>
+            <p>Birthday: ${pad(date.getMonth()+1)}/${pad(date.getDate())}/${pad(date.getFullYear())}</p>
         </div>
     `;
     overlay.classList.remove("hidden");
@@ -75,3 +85,19 @@ fetch(urlAPI)
     .then(response => response.json())
     .then(json => json.results)
     .then(displayMembers)
+
+// Search function
+const searchInput = document.getElementById('search');
+searchInput.addEventListener('keyup', e => {
+    let currentValue = e.target.value.toLowerCase();
+    let cards = document.querySelectorAll('.card');
+    
+    cards.forEach(card => {
+        const name = card.querySelector('.name');
+        if (!name.textContent.toLowerCase().includes(currentValue)) {
+            card.style.display = 'none';
+        } else {
+            card.style.display = 'flex';
+        }
+    })
+});

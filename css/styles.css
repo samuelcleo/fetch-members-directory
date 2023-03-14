@@ -13,9 +13,11 @@ li {
 }
 
 /* ----- Base Styles ----- */
+header {
+    padding: 20px 0;
+}
 h1 {
     font-size: 1.25em;
-    margin: 1.75rem 0;
     color:#000;
 }
 p {
@@ -46,6 +48,19 @@ body {
     width: 128px;
     border-radius: 50%;
 }
+.search {
+    margin-bottom: 20px;
+    text-align: center;
+    width: 100%;
+} .search input {
+    padding: 20px 30px;
+    width: 95%;
+    border-radius: 10px;
+    border: solid 1px #DCDCDC;
+}
+
+
+
 /* ===================================== 
    Modal Styles
 ======================================== */
