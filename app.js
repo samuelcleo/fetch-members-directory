@@ -33,7 +33,8 @@ function displayModal(index) {
             email, 
             location: { city, street: street, state, postcode }, 
             picture
-        } = members[index]; // desctructures and declares properties of [ ...members ] as variables for all properties supplied at the object members[index]
+        } = members[index]; // desctructures and declares properties of [ ...members ] as variables for all properties supplied at each given object members[index]
+    
     let date = new Date(dob.date);
     function pad(number) {
         if (number < 10) {
@@ -42,13 +43,11 @@ function displayModal(index) {
           return number;
         }
     }
-    console.log(date);
-    console.log(date.getMonth());
-    console.log(date.getDate());
-    console.log(date.getFullYear());
+
     const modalHTML = `
+        <button id="btn-previous">&#8592</button>
         <img class="avatar" src="${picture.large}" />
-        <div class="text-container">
+        <div class="text-container" data-index="${index}">
             <h2 class="name">${name.first} ${name.last}</h2>
             <p class="email">${email}</p>
             <p class="address">${city}</p>
@@ -57,6 +56,7 @@ function displayModal(index) {
             <p class="address">${street.name}, ${state} ${postcode}</p>
             <p>Birthday: ${pad(date.getMonth()+1)}/${pad(date.getDate())}/${pad(date.getFullYear())}</p>
         </div>
+        <button id="btn-next">&#8594</button>
     `;
     overlay.classList.remove("hidden");
     modalContent.innerHTML = modalHTML;
@@ -101,3 +101,12 @@ searchInput.addEventListener('keyup', e => {
         }
     })
 });
+
+overlay.addEventListener('click', (e) => {
+    const index = modalContent.querySelector('.text-container').getAttribute('data-index')
+    if (e.target.id === "btn-previous") {
+        displayModal(parseInt(index) - 1);
+    } else if (e.target.id === "btn-next") {
+        displayModal(parseInt(index) + 1)
+    }
+})
